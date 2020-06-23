@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-Hi, I'm Barιş Deniz. I'm a self-taught software engineer with a BSc in Mechanical Engineering from Middle East Technical University. I'm passionate about understanding brain and artificial intelligence. I have some experience in machine learning, computer vision, reinforcement learning and mobile development. 
+Hi, I'm Barιş Deniz. I'm a self-taught software engineer with BSc. in Mechanical Engineering at Middle East Technical University. I'm passionate about understanding brain and artificial intelligence. I have hands-on experience in machine learning, computer vision, reinforcement learning and mobile development. 
 
 Posts in English and Turkish. 
 
