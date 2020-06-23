@@ -607,7 +607,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, we have the information about each of the components in the signal. We can reconstruct the original signal, by combining those components. For this, we first convert each coefficient x<sub>k</sub> into cosine and sine waves by multiplying with $e^{i~2\pi~k~n~/~N}$. Then, we sum all these waves per component and normalize it by number of points.</p>
-<p>Numpy provides inverse FFT function <code>numpy.fft.ifft</code>, which takes N complex coefficients x_k and outputs N complex numbers with very small imaginary parts. Remember,</p>
+<p>Numpy provides inverse FFT function <code>numpy.fft.ifft</code>, which takes N complex coefficients x<sub>k</sub> and outputs N complex numbers with very small imaginary parts. Remember,</p>
 <p>
 $$e^{ix} = \cos (x)+i\sin (x)$$
 
