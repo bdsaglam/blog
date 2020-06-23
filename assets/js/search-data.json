@@ -40,7 +40,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "This is where you put the contents of your About page. Like all your pages, it’s in Markdown format. . This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "content": "Hi, I’m Barιş Deniz. I’m a self-taught software engineer with a BSc in Mechanical Engineering from Middle East Technical University. I’m passionate about understanding brain and artificial intelligence. I have some experience in machine learning, computer vision, reinforcement learning and mobile development. . Posts in English and Turkish. . You can reach me out on Twitter, LinkedIn or Github. .",
           "url": "https://bdsaglam.github.io/blog/about/",
           "relUrl": "/about/",
           "date": ""
