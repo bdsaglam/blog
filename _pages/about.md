@@ -4,10 +4,10 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+Hi, I'm Barιş Deniz. I'm a self-taught software engineer with a BSc in Mechanical Engineering from Middle East Technical University. I'm passionate about understanding brain and artificial intelligence. I have some experience in machine learning, computer vision, reinforcement learning and mobile development. 
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Posts in English and Turkish. 
+
+You can reach me out on Twitter, LinkedIn or Github.
 
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
