@@ -177,7 +177,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Today, when you build a deep neural network with many standard layers and activation functions, you usually don't encounter much problems in training process. But, this wasn't always so. Exploding/vanishing gradients and numerical stability issues were a thing. We don't often have such problems anymore, mostly because ReLU has become the default non-linearity and modern neural network frameworks uses the right initialization schemes under the hood. But, why is initialization important?</p>
+<p>Today, when you build a deep neural network with standard layers and activation functions, you usually don't encounter much problems in training process. But, this wasn't always so. Exploding/vanishing gradients and numerical instability issues were common. We don't often have such problems anymore, mostly because ReLU has become the default non-linearity and modern neural network frameworks uses the right initialization schemes under the hood. But, why is initialization important?</p>
 <p>We can consider a neural network as a collection learnable parameters that are initialized randomly and updated with gradient descent. In theory, this must find the optimal parameters, no matter the initial values. However, since the floating point representations used in computers have a finite range and precision, picking wrong initial values may cause out-of-range numerical values and cripple training process.</p>
 <p>OK, how about constraining all the initial values to a specific range, such as [-1, 1] or [-0.1, 0.1]? Would it solve the problem? Unfortunately, it may not. In modern deep neural networks, the input goes through many layers, each changing incoming data in a specific way. Therefore, the changes accumulate through the network and eventually may cause the values grow too large or too small. To solve this problem for all networks with arbitrary number of layers, we use proven initialization schemes that keep the variance of data and gradients unchanged through neural network as much as possible.</p>
 
@@ -681,7 +681,7 @@ Bias   μ: +0.002  σ: 0.057
 <p>We need to keep variance of data and gradients unchanged through the network as much as possible.</p>
 <p>In forward pass,</p>
 <p>
-$$\sigma^2 = n_{in} ~ \sigma_{input}^2 ~ \sigma_{w}^2\$$
+$$\sigma ^2 = n_{in} ~ \sigma _{input}^2 ~ \sigma _{w}^2\$$
 </p>
 <p>To keep variance unchanged, we want to have</p>
 <p>
@@ -695,9 +695,9 @@ $$\sigma_\text{grad before layer}^2 = n_{out}~\sigma_{w}^2~\sigma_{\text{grad af
 <p>
 $$ n_{out} ~ \sigma_w^2 = 1 \quad \sigma_{w}^2 = \frac{1}{n_{out}} $$
 </p>
-<p>Unless $n_{in}=n_{out}$, we cannot satisfy both constraints. Therefore, we pick the best value possible.</p>
+<p>Unless $n_{in}=n_{out}$, we cannot satisfy both constraints. Therefore, we do our best.</p>
 $$
-\frac{1}{2} (n_{in} + n_{out}) \sigma_{w}^2 = 1 ~\rightarrow~ \sigma_w^2 = \frac{2}{n_{in} + n_{out}}
+\frac{1}{2} (n_{in} + n_{out}) \sigma_{w}^2 = 1 \\ \sigma_w^2 = \frac{2}{n_{in} + n_{out}}
 $$<p>Remember the variance of a uniform distribution with U[a, b]</p>
 <p>
 $$\sigma^2 = \frac{(b-a)^2}{12}$$
