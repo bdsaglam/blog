@@ -681,15 +681,15 @@ Bias   μ: +0.002  σ: 0.057
 <p>We need to keep variance of data and gradients unchanged through the network as much as possible.</p>
 <p>In forward pass,</p>
 <p>
-$$\sigma ^2 = n_{in} ~ \sigma _{input}^2 ~ \sigma _{w}^2\$$
+$$ \sigma^2 = n_{in} ~ \sigma_{input}^2 ~ \sigma_{w}^2 $$
 </p>
 <p>To keep variance unchanged, we want to have</p>
 <p>
-$$ n_{in} ~ \sigma_w^2 = 1 \quad \sigma_{w}^2 = \frac{1}{n_{in}}$$
+$$ n_{in} ~ \sigma_w^2 = 1 \quad \sigma_{w}^2 = \frac{1}{n_{in}} $$
 </p>
 <p>A similar tranformation happens in backward pass when gradients flow in reverse direction.</p>
 <p>
-$$\sigma_\text{grad before layer}^2 = n_{out}~\sigma_{w}^2~\sigma_{\text{grad after layer}}^2$$
+$$ \sigma_\text{grad before layer}^2 = n_{out}~\sigma_{w}^2~\sigma_{\text{grad after layer}}^2 $$
 </p>
 <p>Again, we want to have</p>
 <p>
@@ -700,14 +700,14 @@ $$
 \frac{1}{2} (n_{in} + n_{out}) \sigma_{w}^2 = 1 \\ \sigma_w^2 = \frac{2}{n_{in} + n_{out}}
 $$<p>Remember the variance of a uniform distribution with U[a, b]</p>
 <p>
-$$\sigma^2 = \frac{(b-a)^2}{12}$$
+$$ \sigma^2 = \frac{(b-a)^2}{12} $$
 </p>
 <p>
-$$\sigma_{w}^2 = \frac{(2c)^2}{12} = \frac{c^2}{3}$$
+$$ \sigma_{w}^2 = \frac{(2c)^2}{12} = \frac{c^2}{3} $$
 </p>
 <p>Hence,</p>
 <p>
-$$ \frac{c^2}{3} = \frac{2}{n_{in} + n_{out}} \quad c = \sqrt{\frac{6}{n_{in} + n_{out}}}$$
+$$ \frac{c^2}{3} = \frac{2}{n_{in} + n_{out}} \quad c = \sqrt{\frac{6}{n_{in} + n_{out}}} $$
 </p>
 <p>This is known as Xavier initialization.</p>
 
