@@ -218,7 +218,7 @@ window.onload = wrap_img;
 $$ 
 \text{Binomial Distribution } \\
 $$$$ 
-P_{p,n}(k=\text{#heads}) =  \binom{N}{k} \cdot p^k \cdot (1-p)^{n-k}
+P_{p,n}(k: \text{#heads}) =  \binom{N}{k} \cdot p^k \cdot (1-p)^{n-k}
 $$$$
 \mathbb{E}[\#heads]= \sum\limits_{i=1}^n  \mathbb{E}[\mathbb{1}[coin_i]] = 
 \sum\limits_{i=1}^n  p = np  \tag*{(Linearity of Expectation) }
@@ -1212,6 +1212,13 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As interval gets tighter, we need more samples for a confidence level. Now, let's write a function that calculates required sample size for given interval and confidence level.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1252,7 +1259,6 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As interval gets tighter, we need more samples for a confidence level. Now, let's write a function that calculates required sample size for given interval and confidence level.</p>
 <p>The error ($1 - \text{confidence level}$) gets exponentially smaller as the sample size increases. Hence, we fit a 1D spline linear interpolator on logarithm of error with respect to sample size.</p>
 
 </div>
