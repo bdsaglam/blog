@@ -178,11 +178,14 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span>
@@ -202,15 +205,16 @@ window.onload = wrap_img;
     </div>
 </div>
 </div>
-
+</p>
+    </details>
 </div>
     
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You walked into a casino, there is a game of tossing coins. You don't know whether the coin is biased or fair. But, you have the opportunity to observe the game and keep the stats. So, how many tosses would you observe to measure the probability of the coin?</p>
+<p>You walked into a casino, there is a game of tossing coins. You don't know whether the coin is biased or fair. But, you have the opportunity to observe the game and keep the stats. How many tosses would you observe to measure the probability of the coin?</p>
 <p>Though it is not possible to exactly determine the underlying probability distribution of the coin, we can measure in high confidence, if we observe enough tosses.</p>
-<p>The probability distribution of a coin toss is known as Bernoulli distribution, parameterized with p, the probability of heads. There is no way we can measure this. Instead, we keep the counts of heads, $k$, and divide it into total number of tosses, $n$. Is this a viable way to measure p? Well, yes. The probability distribution of number of heads is Binomial distribution, parameterized with p and n. And the expectation of Bernoulli distribution is $np$. Therefore, if we count heads and divide it by total number of tosses, we have an estimate of $p$.</p>
+<p>The probability distribution of a coin toss is known as Bernoulli distribution parameterized with p, the probability of heads. There is no way we can directly measure this. Instead, we count the heads, $k$, and divide it into total number of tosses, $n$. How do we know that this is a good way of measuring p? Well, the probability distribution of number of heads is Binomial distribution, parameterized with p and n. And the expectation of Bernoulli distribution is $np$. Therefore, if we count heads and divide it by total number of tosses, we have an estimate of $p$.</p>
 $$ 
 \text{Binomial Distribution } \\
 $$$$ 
@@ -301,7 +305,7 @@ Error		: 7.545988%
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>7% error! Not good enough for gambling.
+<pre>7% error! Way too much.
 </pre>
 </div>
 </div>
@@ -397,7 +401,7 @@ Error		: 7.545988%
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Though there are some deviations, it seem's like error decreases as the sample size grows. But, how to know where to stop? Also, how confident are we about our measurements considering the deviations in the measurement? Fortunately, probability theory helps us to determine a confidence level and calculate required sample size.</p>
+<p>Though there are some deviations, it seem's like error decreases as the sample size grows. But, how to know where to stop? Also, how confident are we about our measurements considering the deviations in them? Fortunately, with the help of probability theory, we can determine the number of samples required to reach the desired confidence level for our estimate.</p>
 
 </div>
 </div>
@@ -410,8 +414,8 @@ Error		: 7.545988%
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We want to ensure that our estimate is close to true value of $p$. In other words, we want the probability of the event that our estimate is within a small interval around true value as high as possible. 
-This probability, also known as confidence level, can be formulated as such,</p>
+<p>We want to ensure that our estimate is close to true value of $p$. In other words, we want the probability of the event that our estimate is within a small interval around $p$ as high as possible. 
+This probability, a.k.a. confidence level, can be formulated as such,</p>
 
 </div>
 </div>
@@ -602,7 +606,7 @@ $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you see, for big n values, scipy's comb method overflows since it is out of bounds of Python's floating point number. To overcome this, we can use an approximation for log of combination function.</p>
+<p>As you see, for big n values, Scipy's comb method overflows since it is out of bounds of Python's floating point number. To overcome this, we can use an approximation for log of combination function.</p>
 $$
 \binom{N}{k} \sim \frac{2^{nH(k/n)}}{\sqrt{2\pi k (1 - \frac{k}{n})}}
 $$$$
@@ -775,7 +779,7 @@ $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we can define log PMF.</p>
+<p>OK, the approximation seems pretty close. Now, we can define PMF.</p>
 
 </div>
 </div>
@@ -849,7 +853,7 @@ $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's check sanity of approximated PMF.</p>
+<p>Let's sanity-check approximated PMF.</p>
 
 </div>
 </div>
@@ -954,7 +958,7 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_confidence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
-    <span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
     <span class="n">low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">interval</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
     <span class="n">pmf</span> <span class="o">=</span> <span class="n">binomial_pmf</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">low</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
     <span class="n">cmf</span> <span class="o">=</span> <span class="n">pmf</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
@@ -1006,9 +1010,9 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">100</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">conf</span> <span class="o">=</span> <span class="n">compute_confidence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;confidence level &gt; </span><span class="si">{</span><span class="n">conf</span><span class="si">:</span><span class="s2"> %</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;confidence level &gt;</span><span class="si">{</span><span class="n">conf</span><span class="si">:</span><span class="s2"> %</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1021,7 +1025,7 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>confidence level &gt;  7.725091%
+<pre>confidence level &gt; 7.725091%
 </pre>
 </div>
 </div>
@@ -1048,7 +1052,7 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span>
 <span class="n">conf</span> <span class="o">=</span> <span class="n">compute_confidence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;confidence level &gt; </span><span class="si">{</span><span class="n">conf</span><span class="si">:</span><span class="s2"> %</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;confidence level &gt;</span><span class="si">{</span><span class="n">conf</span><span class="si">:</span><span class="s2"> %</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1061,7 +1065,7 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>confidence level &gt;  45.188993%
+<pre>confidence level &gt; 45.188993%
 </pre>
 </div>
 </div>
@@ -1082,17 +1086,21 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mtick</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mtick</span>
 </pre></div>
 
     </div>
 </div>
 </div>
-
+</p>
+    </details>
 </div>
     
 
@@ -1287,20 +1295,6 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conf</span> <span class="o">=</span> <span class="o">.</span><span class="mi">95</span>
-<span class="n">interval</span> <span class="o">=</span> <span class="o">.</span><span class="mi">04</span>
-<span class="n">nr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">find_sample_size</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">interval</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min sample size for conf=</span><span class="si">{</span><span class="n">conf</span><span class="si">}</span><span class="s2">, interval=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">nr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -1322,20 +1316,6 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conf</span> <span class="o">=</span> <span class="o">.</span><span class="mi">95</span>
-<span class="n">interval</span> <span class="o">=</span> <span class="o">.</span><span class="mi">01</span>
-<span class="n">nr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">find_sample_size</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">interval</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min sample size for conf=</span><span class="si">{</span><span class="n">conf</span><span class="si">}</span><span class="s2">, interval=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">nr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -1357,20 +1337,6 @@ $$\text{confidence level} = F_{n,p}[n(p + \text{interval})] -  F_{n,p}[n(p - \te
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conf</span> <span class="o">=</span> <span class="o">.</span><span class="mi">999999</span>
-<span class="n">interval</span> <span class="o">=</span> <span class="o">.</span><span class="mi">01</span>
-<span class="n">nr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">find_sample_size</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">interval</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min sample size for conf=</span><span class="si">{</span><span class="n">conf</span><span class="si">}</span><span class="s2">, interval=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">nr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
