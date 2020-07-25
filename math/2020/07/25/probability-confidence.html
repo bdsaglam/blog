@@ -212,7 +212,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You walked into a casino, there is a game of tossing coins. You don't know whether the coin is biased or fair. But, you have the opportunity to observe the game and keep the stats. How many tosses would you observe to measure the probability of the coin?</p>
+<p>You walked into a casino, there is a game of tossing coins. You don't know whether the coin is biased or fair. But, you can observe the game and keep the stats. How many tosses would you observe to measure the probability of the coin?</p>
 <p>Though it is not possible to exactly determine the underlying probability distribution of the coin, we can measure in high confidence, if we observe enough tosses.</p>
 <p>The probability distribution of a coin toss is known as Bernoulli distribution parameterized with p, the probability of heads. There is no way we can directly measure this. Instead, we count the heads, $k$, and divide it into total number of tosses, $n$. How do we know that this is a good way of measuring p? Well, the probability distribution of number of heads is Binomial distribution, parameterized with p and n. And the expectation of Bernoulli distribution is $np$. Therefore, if we count heads and divide it by total number of tosses, we have an estimate of $p$.</p>
 $$ 
