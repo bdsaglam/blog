@@ -4,6 +4,7 @@ layout: post
 description: 
 categories: [computer-science]
 title: Halting problem
+image: images/spinning.jpg
 ---
 
 Halting problem is introduced by Alan Turing in his [seminal paper](https://academic.oup.com/plms/article-abstract/s2-42/1/230/1491926?redirectedFrom=fulltext), 1936. It states that there cannot be a general algorithm to decide whether an arbitrary pair of computer program and input halts (finishes execution) or not.
