@@ -177,8 +177,8 @@ window.onload = wrap_img;
 </pre></div>
 <p>Now, the interesting part. Let's run G with G as input, i.e. call G(G). It calls H(G, G) and there are two possible outcomes.</p>
 <ol>
-<li>H decides that program G <u>*halts*</u> on input G and returns true. Then, inside G, first brach of <code>if</code> becomes active and G loops forever, i.e. does <u>*not halt*</u>.</li>
-<li>H decides that program G does <u>*not halt*</u> on input G and returns false. Then, inside G, <code>else</code> branch becomes active and G <u>*halts*</u>.</li>
+<li>H decides that program G <u>halts</u> on input G and returns true. Then, inside G, first brach of <code>if</code> becomes active and G loops forever, i.e. does <u>not halt</u>.</li>
+<li>H decides that program G does <u>not halt</u> on input G and returns false. Then, inside G, <code>else</code> branch becomes active and G <u>halts</u>.</li>
 </ol>
 <p>This is a contradiction. Hence, H cannot exist.</p>
 
