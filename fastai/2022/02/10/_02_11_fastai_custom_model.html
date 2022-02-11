@@ -245,10 +245,10 @@ window.onload = wrap_img;
 <p>The <code>stats</code> refer to the channel means and standard deviations of the images in ImageNet dataset, which the model is pretrained on.</p>
 <p>There are two alternative ways to to use a custom model not present in model registry:</p>
 <ol>
-<li>Create a new helper function similar to <code>cnn_learner</code> that splits the network into backbone and head.</li>
+<li>Create a new helper function similar to <code>cnn_learner</code> that splits the network into backbone and head. Check out <a href="https://walkwithfastai.com/vision.external.timm">Zachary Mueller's awesome blog post</a> to see how it's done.</li>
 <li>Register the architecture in <code>model_meta</code> and use <code>cnn_learner</code>.</li>
 </ol>
-<p>We prefer the second option since it is easier.</p>
+<p>We will cover the second option in this post.</p>
 
 </div>
 </div>
