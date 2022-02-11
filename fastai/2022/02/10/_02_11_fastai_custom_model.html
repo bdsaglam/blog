@@ -228,7 +228,7 @@ window.onload = wrap_img;
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">learn</span>
 </pre></div>
-<p>To do that, it uses the model meta from <code>model_meta</code> registry. <code>model_meta</code> registry is simply a mapping (dictionary) from architecture to its meta data.</p>
+<p>To do that, it uses the model metadata from <code>model_meta</code> registry. <code>model_meta</code> registry is simply a mapping (dictionary) from architecture to its metadata.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_xresnet_split</span><span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="k">return</span> <span class="n">L</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">3</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">:],</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 
 <span class="n">model_meta</span> <span class="o">=</span> <span class="p">{</span>
