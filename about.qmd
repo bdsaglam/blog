@@ -1,0 +1,19 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/bdsaglam
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/bdsaglam
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/bdsaglam
+
+---
+
+About this blog
