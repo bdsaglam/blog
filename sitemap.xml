@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://bdsaglam.github.io/blog/computer-science/2020/04/07/halting-problem.html</loc>
-<lastmod>2020-04-07T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/math/2020/06/23/fourier-transform.html</loc>
-<lastmod>2020-06-23T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/neural-network/2020/06/25/initialization-in-nn.html</loc>
-<lastmod>2020-06-25T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/math/2020/07/25/probability-confidence.html</loc>
-<lastmod>2020-07-25T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/fastai/2022/02/10/_02_11_fastai_custom_model.html</loc>
-<lastmod>2022-02-10T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/about/</loc>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/</loc>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/search/</loc>
-</url>
-<url>
-<loc>https://bdsaglam.github.io/blog/categories/</loc>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/fast-fourier-transform/index.html</loc>
+    <lastmod>2024-01-08T19:15:49.560Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/tgi-openai/index.html</loc>
+    <lastmod>2024-01-08T19:15:48.768Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/halting-problem/index.html</loc>
+    <lastmod>2024-01-08T19:15:47.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/confidence-intervals/index.html</loc>
+    <lastmod>2024-01-08T19:15:47.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/about.html</loc>
+    <lastmod>2024-01-08T19:15:45.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/index.html</loc>
+    <lastmod>2024-01-08T19:15:46.564Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/initialization-in-nn/index.html</loc>
+    <lastmod>2024-01-08T19:15:47.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/fastai-custom-model/index.html</loc>
+    <lastmod>2024-01-08T19:15:48.324Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/bdsaglam/blog/posts/fastai-huggingface-datasets/index.html</loc>
+    <lastmod>2024-01-08T19:15:49.144Z</lastmod>
+  </url>
 </urlset>
